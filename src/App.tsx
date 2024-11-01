@@ -1,38 +1,62 @@
 import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, Briefcase, User2 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
+import LoadingScreen from './components/LoadingScreen';
+import { useLoading } from './context/LoadingContext';
+import './App.css';
 
 export default function App() {
+  const { isLoading } = useLoading();
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
+    <div className="min-h-screen bg-black text-white relative">
       <Navbar />
       
       {/* Hero Section */}
-      <header className="min-h-screen flex flex-col items-center justify-center relative px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-            Sasmitha Weerakkody
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-4">
-            Full Stack Developer
-          </p>
-          <p className="text-lg text-blue-400 mb-8 font-semibold">
-            "Vortex Dev"
-          </p>
-          
-          <div className="flex gap-4 justify-center mb-12">
-            <a href="https://github.com/SasmithaDev" className="hover:text-blue-400 transition-colors">
-              <Github className="w-6 h-6" />
-            </a>
-            <a href="https://www.linkedin.com/in/sasmithadev" className="hover:text-blue-400 transition-colors">
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a href="mailto:sasmith.dev@yahoo.com" className="hover:text-blue-400 transition-colors">
-              <Mail className="w-6 h-6" />
-            </a>
+      <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg">
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="relative backdrop-blur-sm bg-black/20 bg-transparent p-8 rounded-lg">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+              Sasmitha Weerakkody
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-4">
+              Full Stack Developer
+            </p>
+            <p className="text-lg text-blue-400 mb-8 font-semibold">
+              "Sasmitha Dev"
+            </p>
+            
+            <div className="flex gap-4 justify-center mb-12">
+              <a 
+                href="https://github.com/SasmithaDev" 
+                className="hover:text-blue-400 transition-colors p-2 hover:bg-white/10 rounded-full"
+              >
+                <Github className="w-6 h-6" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/sasmithadev" 
+                className="hover:text-blue-400 transition-colors p-2 hover:bg-white/10 rounded-full"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a 
+                href="mailto:sasmith.dev@yahoo.com" 
+                className="hover:text-blue-400 transition-colors p-2 hover:bg-white/10 rounded-full"
+              >
+                <Mail className="w-6 h-6" />
+              </a>
+            </div>
           </div>
         </div>
-        <ChevronDown className="w-6 h-6 absolute bottom-8 animate-bounce" />
+        <ChevronDown className="w-6 h-6 absolute bottom-8 animate-bounce text-white/70" />
+
+        <div className="central-star"></div>
+        <div className="particles-container"></div>
       </header>
 
       {/* About Section */}
@@ -50,7 +74,7 @@ export default function App() {
             />
             <div>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Known as Vortex Dev in the tech community, I'm a passionate Full Stack Developer who thrives on creating 
+                Known as Sasmitha Dev in the tech community, I'm a passionate Full Stack Developer who thrives on creating 
                 innovative web solutions. With expertise in both frontend and backend technologies, I bring ideas to life 
                 through clean, efficient code and intuitive user experiences.
               </p>

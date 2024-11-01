@@ -1,42 +1,54 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Galaxy background */
+.galaxy-bg {
+  position: relative;
+  background: radial-gradient(circle at center, #001, #000 80%);
+  overflow: hidden;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Central star */
+.central-star {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(0, 200, 255, 0.6), transparent);
+  box-shadow: 0 0 30px 15px rgba(0, 200, 255, 0.8), 0 0 100px 40px rgba(0, 200, 255, 0.5);
+  border-radius: 50%;
+  animation: pulse 2s infinite alternate;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Particles container */
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Individual particle */
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: orbit 10s linear infinite;
+  transform-origin: 50vw 50vh; /* Set the central star as the origin */
 }
 
-.card {
-  padding: 2em;
+/* Keyframes for pulsing central star */
+@keyframes pulse {
+  from { transform: scale(0.95); opacity: 0.9; }
+  to { transform: scale(1.05); opacity: 1; }
 }
 
-.read-the-docs {
-  color: #888;
+
+
+/* Keyframes for orbiting particles */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(300px); }
+  to { transform: rotate(360deg) translateX(300px); }
 }
