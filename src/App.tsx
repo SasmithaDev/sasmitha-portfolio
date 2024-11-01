@@ -1,4 +1,3 @@
-import React from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, Briefcase, User2 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
@@ -20,7 +19,7 @@ export default function App() {
           <p className="text-lg text-blue-400 mb-8 font-semibold">
             "Vortex Dev"
           </p>
-
+          
           <div className="flex gap-4 justify-center mb-12">
             <a href="https://github.com/SasmithaDev" className="hover:text-blue-400 transition-colors">
               <Github className="w-6 h-6" />
