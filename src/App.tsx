@@ -20,9 +20,15 @@ export default function App() {
       
       {/* Hero Section */}
       <header className="min-h-screen flex flex-col items-center justify-center relative px-4 overflow-hidden">
-        <div className="absolute inset-0">
+      <div 
+          className="absolute inset-0" 
+          style={{
+            marginTop: window.innerWidth <= 768 ? '-200px' : '0px'
+          }}
+        >
           <GalaxyBackground />
         </div>
+
     
         <div className="max-w-4xl mx-auto text-center relative z-10">
         <div 
