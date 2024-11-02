@@ -109,14 +109,10 @@ export default function App() {
             {[
               {
                 title: 'E-Commerce Platform',
-                description: 'A full-stack e-commerce solution with React and Node.js',
-                image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800'
+                description: 'A full-stack e-commerce solution with React / Orgainland',
+                image: 'https://scontent.fcmb8-1.fna.fbcdn.net/v/t39.30808-6/465220531_122125539638448594_2548537604285320837_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=t2Lv2QGDiD0Q7kNvgH91YYE&_nc_zt=23&_nc_ht=scontent.fcmb8-1.fna&_nc_gid=AymEx-uRlq97eFmDTkJxVp_&oh=00_AYDgabOWD5Snxie53gmYSezes6RzYDVW4MyBLG5R99HR6g&oe=672B5340'
               },
-              {
-                title: 'Task Management App',
-                description: 'Real-time task management with WebSocket integration',
-                image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800'
-              }
+              
             ].map((project, index) => (
               <div key={index} className="group relative overflow-hidden rounded-lg">
                 <img
@@ -127,7 +123,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p className="text-gray-300 text-sm mb-4">{project.description}</p>
-                  <a href="#" className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+                  <a href="https://www.orgainland.com/" className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
                     View Project <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
