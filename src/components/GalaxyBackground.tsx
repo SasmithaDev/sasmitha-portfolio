@@ -12,21 +12,21 @@ const GalaxyBackground: React.FC = () => {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
     const renderer = new THREE.WebGLRenderer({ 
       antialias: true,
-      alpha: true // Makes background transparent
+      alpha: true
     });
 
-    // Parameters
+    // Parameters optimized for hero section
     const parameters = {
-      count: 100000,
-      size: 0.01,
+      count: 50000,
+      size: 0.015,
       radius: 5,
       branches: 3,
       spin: 1,
       randomness: 0.2,
       randomnessPower: 3,
-      insideColor: '#ff69b4', // Pink to match your theme
-      outsideColor: '#0a192f', // Dark blue
-      rotationSpeed: 0.3
+      insideColor: '#ff69b4',
+      outsideColor: '#0a192f',
+      rotationSpeed: 0.2
     };
 
     const generateGalaxy = () => {
@@ -39,7 +39,6 @@ const GalaxyBackground: React.FC = () => {
       for (let i = 0; i < parameters.count; i++) {
         const i3 = i * 3;
 
-        // Position
         const radius = Math.random() * parameters.radius;
         const spinAngle = radius * parameters.spin;
         const branchAngle = ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
@@ -52,7 +51,6 @@ const GalaxyBackground: React.FC = () => {
         positions[i3 + 1] = randomY;
         positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
 
-        // Color
         const mixedColor = colorInside.clone();
         mixedColor.lerp(colorOutside, radius / parameters.radius);
 
@@ -85,8 +83,11 @@ const GalaxyBackground: React.FC = () => {
 
     // Responsive handling
     const handleResize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const container = containerRef.current;
+      if (!container) return;
+
+      const width = container.clientWidth;
+      const height = container.clientHeight;
 
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -95,13 +96,12 @@ const GalaxyBackground: React.FC = () => {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     };
 
-    // Initial setup
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Camera position
+    // Camera positioning
     camera.position.z = 6;
-    camera.position.y = 3;
+    camera.position.y = 2;
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     // Animation
@@ -109,22 +109,20 @@ const GalaxyBackground: React.FC = () => {
 
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
-      galaxy.rotation.y = elapsedTime * parameters.rotationSpeed * 0.1;
+      galaxy.rotation.y = elapsedTime * parameters.rotationSpeed;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
 
-    // Add to DOM
     containerRef.current.appendChild(renderer.domElement);
     animate();
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
       geometry.dispose();
       material.dispose();
       renderer.dispose();
-      if (containerRef.current) {
+      if (containerRef.current?.contains(renderer.domElement)) {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
@@ -134,13 +132,13 @@ const GalaxyBackground: React.FC = () => {
     <div
       ref={containerRef}
       style={{
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
         height: '100%',
-        zIndex: 0,
-        background: 'linear-gradient(to bottom, #0a192f, #000000)'
+        zIndex: 1,
+        background: 'linear-gradient(to bottom, rgba(10,25,47,0.8), rgba(0,0,0,0.9))'
       }}
     />
   );

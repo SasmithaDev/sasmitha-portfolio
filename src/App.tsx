@@ -19,16 +19,19 @@ export default function App() {
       <Navbar />
       
       {/* Hero Section */}
-      <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg" >
-        
-         <GalaxyBackground/>
+      <header className="min-h-screen flex flex-col items-center justify-center relative px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <GalaxyBackground />
+        </div>
     
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="relative backdrop-blur-none bg-black/20 bg-transparent p-8 rounded-lg" style={{ marginTop: '600px' }}>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-clip-text animate-gradient">
-    Sasmitha Weerakkody
-</h1>
-
+        <div 
+          className="relative backdrop-blur-none bg-black/20 bg-transparent p-8 rounded-lg" 
+          style={{ marginTop: '400px' }}
+        >
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent animate-gradient">
+              Sasmitha Weerakkody
+            </h1>
 
             <p className="text-xl md:text-2xl text-gray-300 mb-4">
               Full Stack Developer
@@ -59,7 +62,7 @@ export default function App() {
             </div>
           </div>
         </div>
-        <ChevronDown className="w-6 h-6 absolute bottom-8 animate-bounce text-white/70" />
+        <ChevronDown className="w-6 h-6 absolute bottom-8 animate-bounce text-white/70 z-10" />
       </header>
 
       {/* About Section */}
