@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
 import LoadingScreen from './components/LoadingScreen';
 import { useLoading } from './context/LoadingContext';
+import './index.css';
 import './App.css';
 
 export default function App() {
@@ -20,10 +21,12 @@ export default function App() {
       <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg">
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="relative backdrop-blur-sm bg-black/20 bg-transparent p-8 rounded-lg">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-              Sasmitha Weerakkody
-            </h1>
+          <div className="relative backdrop-blur-none bg-black/20 bg-transparent p-8 rounded-lg" style={{ marginTop: '490px' }}>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-clip-text animate-gradient">
+    Sasmitha Weerakkody
+</h1>
+
+
             <p className="text-xl md:text-2xl text-gray-300 mb-4">
               Full Stack Developer
             </p>
