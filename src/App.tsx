@@ -21,13 +21,7 @@ export default function App() {
       {/* Hero Section */}
       <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg" >
         
-         <GalaxyBackground 
-          particleCount={100000}
-          branches={4}
-          insideColor="#ff0000"
-          outsideColor="#0000ff"
-          rotationSpeed={0.3}
-        />
+         <GalaxyBackground/>
     
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="relative backdrop-blur-none bg-black/20 bg-transparent p-8 rounded-lg" style={{ marginTop: '600px' }}>
