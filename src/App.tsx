@@ -5,7 +5,7 @@ import LoadingScreen from './components/LoadingScreen';
 import { useLoading } from './context/LoadingContext';
 import './index.css';
 import './App.css';
-import ParticleSystem from './components/ParticleSystem';
+import GalaxyBackground from './components/GalaxyBackground';
 
 export default function App() {
   const { isLoading } = useLoading();
@@ -19,14 +19,19 @@ export default function App() {
       <Navbar />
       
       {/* Hero Section */}
-      <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg">
-         {/* Particle System 1 (slower speed) */}
-      <ParticleSystem radius={250} speed={0.5} />
-      {/* Particle System 2 (faster speed) */}
-      <ParticleSystem radius={300} speed={1} />
+      <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg" >
         
+         {/* Particle System 1 (slower speed) */}
+         <GalaxyBackground 
+          particleCount={100000}
+          branches={4}
+          insideColor="#ff0000"
+          outsideColor="#0000ff"
+          rotationSpeed={0.3}
+        />
+    
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="relative backdrop-blur-none bg-black/20 bg-transparent p-8 rounded-lg" style={{ marginTop: '490px' }}>
+          <div className="relative backdrop-blur-none bg-black/20 bg-transparent p-8 rounded-lg" style={{ marginTop: '600px' }}>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-clip-text animate-gradient">
     Sasmitha Weerakkody
 </h1>
@@ -62,9 +67,6 @@ export default function App() {
           </div>
         </div>
         <ChevronDown className="w-6 h-6 absolute bottom-8 animate-bounce text-white/70" />
-
-        <div className="central-star"></div>
-        <div className="particles-container"></div>
       </header>
 
       {/* About Section */}
