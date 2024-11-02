@@ -21,7 +21,6 @@ export default function App() {
       {/* Hero Section */}
       <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg" >
         
-         {/* Particle System 1 (slower speed) */}
          <GalaxyBackground 
           particleCount={100000}
           branches={4}
