@@ -5,6 +5,7 @@ import LoadingScreen from './components/LoadingScreen';
 import { useLoading } from './context/LoadingContext';
 import './index.css';
 import './App.css';
+import ParticleSystem from './components/ParticleSystem';
 
 export default function App() {
   const { isLoading } = useLoading();
@@ -19,6 +20,10 @@ export default function App() {
       
       {/* Hero Section */}
       <header className="min-h-screen flex flex-col items-center justify-center relative px-4 galaxy-bg">
+         {/* Particle System 1 (slower speed) */}
+      <ParticleSystem radius={250} speed={0.5} />
+      {/* Particle System 2 (faster speed) */}
+      <ParticleSystem radius={300} speed={1} />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="relative backdrop-blur-none bg-black/20 bg-transparent p-8 rounded-lg" style={{ marginTop: '490px' }}>
